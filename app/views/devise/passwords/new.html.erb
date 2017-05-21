@@ -1,0 +1,22 @@
+<header class="upperlogo">
+    <%= link_to root_path do %>
+    <%= image_tag("explain.png", width: "300", :align=> "middle") %>
+    <% end %>
+</header>
+<h2 class="one">비밀번호가 뭐더라?</h2>
+<div class="formsol">
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "비밀번호 재설정 이메일을 보내주세요!" %>
+    <%= link_to '가입하기', new_user_registration_path, type: "button", class: "btn btn-default btn-lg" %>
+    <%= link_to '로그인', new_user_session_path, type: "button", class: "btn btn-default btn-lg" %>
+  </div>
+</div>
+<% end %>
+

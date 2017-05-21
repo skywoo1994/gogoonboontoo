@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    
+      #map {
+        height: 400px;
+        width: 960px;
+        margin: 0 auto;
+       }
+      #Bring {
+        text-align: center; 
+      }
+      </style>
+    
+  </head>
+  <body>
+    <%= link_to controller: "front", action: "index" do %>
+        
+    <div class="logogo">
+      <%=image_tag("logo.png", size: "95x30" )%>
+    </div>
+    <% end %>
+    
+    <h3 class="one">분실물을 가져다 주세요!</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var onestop_moon = {lat: 37.589222, lng: 127.033143};
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 15, center: onestop_moon});
+        var marker = new google.maps.Marker({ position: onestop_moon, map: map});
+
+        var onestop_ee = {lat: 37.584855, lng: 127.025246};
+        var marker1 = new google.maps.Marker({ position: onestop_ee, map: map});
+
+            var contentString = '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h3 id="firstHeading" class="firstHeading">인문, 사회 캠퍼스 One-Stop 센터</h3>'+
+                '<div id="bodyContent">'+
+                '<p> 중앙광장 지하 1층</p>'+
+                '<p>02-3290-1140~6</p>'+
+                '</div>'+
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+              position: onestop_moon,
+              map: map,
+              title: 'onestop_moon (Ayers Rock)'
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+
+            var contentString1 = '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h3 id="firstHeading" class="firstHeading">자연계 캠퍼스 One-Stop 센터</h3>'+
+                '<div id="bodyContent">'+
+                '<p> 하나스퀘어 지하 1층</p>'+
+                '<p>02-3290-4090~2</p>'+
+                '</div>'+
+                '</div>';
+
+            var infowindow1 = new google.maps.InfoWindow({
+              content: contentString1
+            });
+
+            var marker1 = new google.maps.Marker({
+              position: onestop_ee,
+              map: map,
+              title: 'onestop_ee (Ayers Rock)'
+            });
+            marker1.addListener('click', function() {
+              infowindow1.open(map, marker1);
+            });
+
+
+          }
+
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtml9iLt0LcMC0EoeSVwTq-iBvJEmBNNY&callback=initMap">
+    </script>
+  </body>
+</html>
+
+<div style='height: 70px'></div>
+
+
+<ul class="list-unstyled", style="  display: table; margin-left: auto; margin-right: auto">
+  <li class="media">
+    
+    
+    <%=image_tag("gate.jpg", size: '100x100', class: "d-flex mr-3 rounded-circle")%>
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">인문,사회 캠퍼스</h5>
+      <%=image_tag("location.png", size: '30x30') %>중앙광장 지하 1층 <%=image_tag("call.png", size: '30x30') %> 02-3290-1140~6 F.02-929-2380 <%=image_tag("mail.png", size: '30x30') %> onestop1@korea.ac.kr
+    </div>
+    
+    
+    
+  </li>
+  
+  <li class="media my-4">
+    
+    
+    <%=image_tag("square.jpg", size: '100x100', class: "d-flex mr-3 rounded-circle")%>
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">자연계 캠퍼스</h5>
+      <%=image_tag("location.png", size: '30x30') %>하나스퀘어 지하 1층 <%=image_tag("call.png", size: '30x30') %> 02-3290-4090~2 F.02-929-0220 <%=image_tag("mail.png", size: '30x30') %> onestop2@korea.ac.kr
+    </div>
+    
+    
+  </li>
+</ul>
+
+
+<div class="signup">
+    <p>ⓒcopyright</p>
+</div>

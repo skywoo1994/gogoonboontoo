@@ -1,0 +1,9 @@
+<div class="container">
+    <h1 class="hh">New Post</h1>
+
+    <%= render 'form', post: @post %>
+    
+    <div class="right">
+        <%= link_to 'Back', posts_path, type: "button", class: "btn btn-primary" %>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+
+
+ <%= link_to controller: "front", action: "index" do %>
+
+    <div class="logogo">
+      <%=image_tag("logo.png", width: 100 )%>
+    </div>
+    <% end %>
+    
+    <h3 class="two">멋쟁이 사자처럼 at KU 5기 5조</h3>
+<HR class="line1" WIDTH=60% ALIGN=CENTER color=black>
+
+<div class="font1">
+        <% i=0 %>
+    <% @posts.each do |post| %>
+      <% if post.place %>
+       <% i=i+1 %>
+      <% end %>
+     <% end %>
+     
+
+    <div id="value">0</div>
+        <script type="text/javascript">
+        function animateValue(id, start, end, duration) {
+        var range = end - start;
+        var current = start;
+        var increment = end > start? 1 : -1;
+        var stepTime = Math.abs(Math.floor(duration / range));
+        var obj = document.getElementById(id);
+        var timer = setInterval(function() {
+        current += increment;
+        obj.innerHTML = current;
+        if (current == end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+
+animateValue("value", 0,  <%= i %>, 2000);
+</script>
+
+
+</div>
+
+<p class="font2">개의 분실물이 주인을 찾고 있어요 ㅠㅠ</p>
+
+<HR class="line2" WIDTH=60% ALIGN=CENTER color=black>
+
+<div class="container">
+	<div class="carousel">
+		<input type="radio" id="carousel-1" name="carousel[]" checked>
+		<input type="radio" id="carousel-2" name="carousel[]">
+     <input type="radio" id="carousel-3" name="carousel[]">
+		<input type="radio" id="carousel-4" name="carousel[]">
+		<input type="radio" id="carousel-5" name="carousel[]">
+		<ul class="carousel__items">
+			<li class="carousel__item"><%= image_tag("biglogo.png", width: 100 )%></li>
+			<li class="carousel__item"><%= image_tag("baekki.png", width: 100 )%></li>
+			<li class="carousel__item"><%= image_tag("hanasquare.png", width: 100 )%></li>
+			<li class="carousel__item"><%= image_tag("onestop.png", width: 100 )%></li>
+			<li class="carousel__item"><%= image_tag("med.png", width: 100 )%></li>
+		</ul>
+     <div class="carousel__prev">
+     	<label for="carousel-1"></label>
+     	<label for="carousel-2"></label>
+     	<label for="carousel-3"></label>
+     	<label for="carousel-4"></label>
+     	<label for="carousel-5"></label>
+     </div>
+     <div class="carousel__next">
+       <label for="carousel-1"></label>
+       <label for="carousel-2"></label>
+       <label for="carousel-3"></label>
+       <label for="carousel-4"></label>
+       <label for="carousel-5"></label>
+     </div>
+     <div class="carousel__nav">
+       <label for="carousel-1"></label>
+       <label for="carousel-2"></label>
+       <label for="carousel-3"></label>
+       <label for="carousel-4"></label>
+       <label for="carousel-5"></label>
+     </div>
+   </div>
+ </div>
+
+
+<section class="intro">
+        <%= link_to controller: "front", action: "map" do %>
+          <%= image_tag('get.png', width: 400) %>
+        <% end %>
+        <% if current_user %>
+          <%= link_to controller: "posts", action: "index" do %>
+            <%= image_tag('lost.png', width: 400) %>
+          <% end %> 
+          <% else %>
+          <%= link_to controller: "home", action: "index" do %>
+            <%= image_tag('lost.png', width: 400) %>
+          <% end %>
+        <% end %>
+</section>
+
+
+
+<div class="signup">
+    <p>ⓒcopyright</p>
+</div>

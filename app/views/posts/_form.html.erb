@@ -1,0 +1,66 @@
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="form-group row">
+    <%= f.label :항목, class: "col-2 col-form-label"%>
+    <div class="col-10">
+    <%= f.text_field :title, class: "form-control", type: "text", id: "example-text-input" %>
+    </div>
+  </div>
+
+  
+
+    <div class="form-group row">
+      <%= f.label :습득장소, class: "col-2 col-form-label"%>
+      <div class="col-10">
+      <%= f.text_field :place, class: "form-control", type: "text", id: "example-text-input" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :습득일자, class: "col-2 col-form-label" %>
+      <div class="col-10">
+      <%= f.text_field :time, class: "form-control", type: "date", value: "2017-05-21", id: "example-date-input" %>
+      </div>
+    </div>
+
+  
+  <div class="form-group row">
+    <%= f.label :내용, class: "col-2 col-form-label" %>
+    <div class="col-10">
+    <%= f.text_area :body, class: "form-control", type: "text", id: "example-text-input" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :사진, class: "col-2 col-form-label" %>
+    <div class="col-10">
+    <%= f.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
+    </div>
+  </div>
+
+<!--
+  <div class="">
+    <#%= f.label :user_id %>
+    <#%= f.text_field :user_id %>
+  </div>field
+-->
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

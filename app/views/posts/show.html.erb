@@ -1,0 +1,85 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<div class="upperlogo">
+      <%= link_to root_path do %>
+    <%= image_tag("explain.png", width: "300", :align=> "middle") %>
+    <% end %>
+</div>
+
+
+<p>
+
+<div class="form-group row">
+  <div class="col-2 col-form-label">
+  <strong>항목</strong>
+  </div>
+  <div class="col-10">
+  <%= @post.title %>
+  </div>
+</div>
+
+</p>
+
+<p>
+<div class="form-group row">
+  <div class="col-2 col-form-label">
+  <strong>사진</strong>
+  </div>
+  <div class="col-10">
+  <% if @post.image.url %>
+    <img src="<%= @post.image.url %>" alt="dog" />
+  <% else %>
+    <span>이미지 없음</span>
+  <% end %>
+  </div>
+</div>
+</p>
+
+<p>
+<div class="form-group row">
+  <div class="col-2 col-form-label">
+  <strong>습득장소</strong>
+  </div>
+  <div class="col-10">
+  <%= @post.place %>
+  </div>
+</div>
+</p>
+
+<p>
+<div class="form-group row">
+  <div class="col-2 col-form-label">
+  <strong>습득일자</strong>
+  </div>
+  <div class="col-10">
+  <%= @post.time %>
+  </div>
+</div>
+</p>
+
+<p>
+<div class="form-group row">
+  <div class="col-2 col-form-label">
+  <strong>내용</strong>
+  </div>
+  <div class="col-10">
+  <%= @post.body %>
+  </div>
+</div>
+
+</p>
+
+<!--
+<p>
+  <strong>User:</strong>
+  <#%= @post.user %>
+</p>
+-->
+
+<div class="right">
+<%= link_to 'Edit', edit_post_path(@post), type: "button", class: "btn btn-primary" %> |
+<%= link_to 'Back', posts_path, type: "button", class: "btn btn-primary" %>
+</div>
+</div>

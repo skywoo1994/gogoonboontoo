@@ -1,0 +1,12 @@
+@import "bootstrap";
+#background {
+    background-image: url(background.jpg);
+    background-repeat: none;
+    background-size: 100%;
+}
+
+@import "style";
+@import "front";
+@import "posts";
+@import "home";
+

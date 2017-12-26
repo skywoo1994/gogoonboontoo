@@ -14,7 +14,7 @@
  
         <% if current_user %>
 
-        <%= link_to 'search', controller: 'posts', index: 'index' %>
+        <%= link_to 'search', controller: 'crawls', index: 'viewfile' %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 
         <% else %>
